@@ -1,0 +1,27 @@
+{
+  "name": "toggle-details",
+  "version": "0.1.0",
+  "description": "A mini JS library to toggle hiding extra content on Mobile devices",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssagga/toggle-details.git"
+  },
+  "author": "Samer Al-Saqqa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ssagga/toggle-details/issues"
+  },
+  "homepage": "https://github.com/ssagga/toggle-details#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-sass": "^3.2.1"
+  }
+}
