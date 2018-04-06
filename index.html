@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="dist/css/toggle-details.css">
+    <style>
+    
+    </style>
 </head>
 <body>
     <div class="post">
@@ -32,8 +34,11 @@
             </p>
         </div>
     </div>
-    <script src="src/toggle-details.js"></script>
-    <script src="main.js"></script>
+    <script src="dist/toggle-details.js"></script>
+    <script>
+        var details = new toggleDetails();
+        details.initialize('post-body','post-body-details',768)
+    </script>
 
 </body>
 </html>

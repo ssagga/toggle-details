@@ -4,7 +4,7 @@ var sass        = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 
 
-/*
+
 // Compile Sass & Inject Into Browser
 gulp.task('sass', function() {
     return gulp.src('src/scss/*.scss')
@@ -23,7 +23,7 @@ gulp.task('serve', ['sass'], function() {
     gulp.watch(['src/scss/*.scss'], ['sass']);
     gulp.watch("*.html").on('change', browserSync.reload);
 });
-*/
+
 
 // Transpile Javascript using Babel
 gulp.task('babel' , function() {
@@ -36,4 +36,4 @@ gulp.task('babel' , function() {
 
 
 
-gulp.task('default', ['sass','babel','serve']);
+gulp.task('default', ['babel','serve']);

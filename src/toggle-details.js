@@ -5,12 +5,9 @@
  */
 
 
- //console.time(toggleDetails)
-
-
 class toggleDetails{
     constructor(){
-        console.log("Object created")   //DEBUG
+        //console.log("Object created")   //DEBUG
         this._contentClassName
         this._detailsClassName
         this._parentNodes
@@ -22,12 +19,12 @@ class toggleDetails{
     initialize(contentClass , detailsClass , breakpoint){
         //Check that class names are supplimented
         if(!contentClass || !detailsClass ||!breakpoint){
-            throw("Required missing parameters: Content class names")
+            throw new Error("Required missing parameters: Content class names");
         }
         this._contentClassName = contentClass;
         this._detailsClassName = detailsClass;
         this._responsiveBreakpoint = breakpoint;
-        console.log(this._contentClassName, this._detailsClassName)    //DEBUG
+        //console.log(this._contentClassName, this._detailsClassName)    //DEBUG
 
         //Find DOM nodes with supplied class names
         this._parentNodes = document.querySelectorAll('.'+'post-body')
@@ -47,7 +44,7 @@ class toggleDetails{
                 }else{
                     _details.classList.add(this._toggleClass)
                 }
-                console.log(_details)   //DEBUG
+                //console.log(_details)   //DEBUG
             })
         })
 

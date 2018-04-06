@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -10,32 +10,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * @license MIT (https://github.com/ssagga/toggle-details/blob/master/LICENSE)
  */
 
-//console.time(toggleDetails)
-
-
 var toggleDetails = function () {
     function toggleDetails() {
         _classCallCheck(this, toggleDetails);
 
-        console.log("Object created"); //DEBUG
+        //console.log("Object created")   //DEBUG
         this._contentClassName;
         this._detailsClassName;
         this._parentNodes;
         this._toggleClass = 'toggle-details-hidden';
+        this._toggleButtonClass = 'toggle-details-button';
+        this._responsiveBreakpoint = 768;
     }
 
     _createClass(toggleDetails, [{
-        key: "initialize",
-        value: function initialize(contentClass, detailsClass) {
+        key: 'initialize',
+        value: function initialize(contentClass, detailsClass, breakpoint) {
             var _this = this;
 
             //Check that class names are supplimented
-            if (!contentClass || !detailsClass) {
-                throw "Required missing parameters: Content class names";
+            if (!contentClass || !detailsClass || !breakpoint) {
+                throw new Error("Required missing parameters: Content class names");
             }
             this._contentClassName = contentClass;
             this._detailsClassName = detailsClass;
-            console.log(this._contentClassName, this._detailsClassName); //DEBUG
+            this._responsiveBreakpoint = breakpoint;
+            //console.log(this._contentClassName, this._detailsClassName)    //DEBUG
 
             //Find DOM nodes with supplied class names
             this._parentNodes = document.querySelectorAll('.' + 'post-body');
@@ -44,6 +44,7 @@ var toggleDetails = function () {
                 var _toggleButton = document.createElement('a');
                 _toggleButton.href = '';
                 _toggleButton.innerHTML = 'Toggle';
+                _toggleButton.classList.add(_this._toggleButtonClass);
                 _details.parentNode.insertBefore(_toggleButton, _details.nextSibling);
 
                 _toggleButton.addEventListener('click', function (e) {
@@ -54,12 +55,19 @@ var toggleDetails = function () {
                     } else {
                         _details.classList.add(_this._toggleClass);
                     }
-                    console.log(_details); //DEBUG
+                    //console.log(_details)   //DEBUG
                 });
             });
 
+            //Add media query listeners to detect screen size
+            var _media = window.matchMedia('(max-width: ' + this._responsiveBreakpoint + 'px)');
+            _media.addListener(function () {
+                _this.responsiveCheck(_media);
+            });
+            this.responsiveCheck(_media);
+
             //Add toggle style rules to the DOM
-            var css = "." + this._toggleClass + " { display: none; }",
+            var css = '.' + this._toggleClass + ' {display: none;}',
                 head = document.head || document.getElementsByTagName('head')[0],
                 style = document.createElement('style');
 
@@ -70,6 +78,39 @@ var toggleDetails = function () {
                 style.appendChild(document.createTextNode(css));
             }
             head.appendChild(style);
+        }
+    }, {
+        key: 'responsiveCheck',
+        value: function responsiveCheck(media) {
+            if (media.matches) {
+                this.toggleMobileMode();
+            } else {
+                this.toggleDesktopMode();
+            }
+        }
+    }, {
+        key: 'toggleMobileMode',
+        value: function toggleMobileMode() {
+            var _this2 = this;
+
+            this._parentNodes.forEach(function (node) {
+                var _details = node.querySelector('.' + _this2._detailsClassName);
+                var _button = node.querySelector('.' + _this2._toggleButtonClass);
+                _details.classList.add(_this2._toggleClass);
+                _button.style.display = 'block';
+            });
+        }
+    }, {
+        key: 'toggleDesktopMode',
+        value: function toggleDesktopMode() {
+            var _this3 = this;
+
+            this._parentNodes.forEach(function (node) {
+                var _details = node.querySelector('.' + _this3._detailsClassName);
+                var _button = node.querySelector('.' + _this3._toggleButtonClass);
+                _details.classList.remove(_this3._toggleClass);
+                _button.style.display = 'none';
+            });
         }
     }]);
 
