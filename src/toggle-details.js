@@ -1,5 +1,5 @@
 /*!
- * toggle-details.js v0.1.3 (https://github.com/ssagga/toggle-details)
+ * toggle-details.js v0.2.0 (https://github.com/ssagga/toggle-details)
  * @copyright 2018 Samer Al-Saqqa
  * @license MIT (https://github.com/ssagga/toggle-details/blob/master/LICENSE)
  */
