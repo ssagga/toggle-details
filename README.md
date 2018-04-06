@@ -3,6 +3,9 @@
 A mini JS library to enable responsive content hiding and a details hide/expand button
 
 ## Demo
+
+![toggle-details demo](https://raw.githubusercontent.com/ssagga/toggle-details/master/demo/demo.gif "toggle-details demo")
+
 Clone or download the repo to your desktop and run index.html in your browser. Resize the window. The demo will react once the screen width is less 768px.
 
 ## Installation
