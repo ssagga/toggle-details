@@ -1,8 +1,9 @@
 {
   "name": "toggle-details",
-  "version": "0.1.0",
-  "description": "A mini JS library to toggle hiding extra content on Mobile devices",
-  "main": "index.js",
+  "version": "0.1.1",
+  "description": "A mini JS library to enable responsive content hiding and a details hide/expand button",
+  "main": "dist/toggle-details.js",
+  "unpkg": "dist/toggle-details.js",
   "scripts": {
     "start": "gulp"
   },
@@ -23,5 +24,8 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
     "gulp-sass": "^3.2.1"
-  }
+  },
+  "files": [
+    "dist/toggle-details.js"
+  ]
 }

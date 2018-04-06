@@ -27,7 +27,7 @@ class toggleDetails{
         //console.log(this._contentClassName, this._detailsClassName)    //DEBUG
 
         //Find DOM nodes with supplied class names
-        this._parentNodes = document.querySelectorAll('.'+'post-body')
+        this._parentNodes = document.querySelectorAll('.'+this._contentClassName)
         this._parentNodes.forEach((node)=>{
             const _details = node.querySelector('.'+this._detailsClassName)
             const _toggleButton = document.createElement('a')

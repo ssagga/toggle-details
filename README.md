@@ -10,8 +10,12 @@ Clone or download the repo to your desktop and run index.html in your browser. R
 
 ## Installation
 ### Setup
-#### NPM / YARN
-*The library is still not published to NPM or YARN. Please download manually*
+#### NPM
+
+```bash
+npm i --save toggle-details.js
+```
+
 #### Manual Installation
 1. **Download** the **[toggle-details.js](https://github.com/ssagga/toggle-details/blob/master/dist/toggle-details.js)** file from the dist folder and place in your project directory.
 1. **Include** the library in your HTML before the `</body>` tag as follows
