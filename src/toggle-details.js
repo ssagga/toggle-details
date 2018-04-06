@@ -4,7 +4,6 @@
  * @license MIT (https://github.com/ssagga/toggle-details/blob/master/LICENSE)
  */
 
-
 class toggleDetails{
     constructor(){
         //console.log("Object created")   //DEBUG

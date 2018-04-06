@@ -1,6 +1,8 @@
 var gulp        = require('gulp');
+var rename      = require('gulp-rename');
 const babel     = require('gulp-babel');
 var sass        = require('gulp-sass');
+var uglify      = require('gulp-uglify');
 var browserSync = require('browser-sync').create();
 
 
@@ -25,15 +27,18 @@ gulp.task('serve', ['sass'], function() {
 });
 
 
-// Transpile Javascript using Babel
-gulp.task('babel' , function() {
+// Transpile Javascript using Babel and generate compressed version using uglify
+gulp.task('transpile' , function() {
     gulp.src('src/toggle-details.js')
     .pipe(babel({
         presets: ['env']
     }))
     .pipe(gulp.dest('dist'))
+    .pipe(uglify())
+    .pipe(rename('toggle-details.min.js'))
+    .pipe(gulp.dest('dist'))
 });
 
 
 
-gulp.task('default', ['babel','serve']);
+gulp.task('default', ['transpile','serve']);
