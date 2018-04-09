@@ -13,7 +13,7 @@ Clone or download the repo to your desktop and run index.html in your browser. R
 #### NPM
 
 ```bash
-npm i --save toggle-details.js
+npm i --save toggle-details
 ```
 
 #### Manual Installation
@@ -33,15 +33,24 @@ In your `<script>` tags before `</body>` or in your linked javascript file, init
 ```javascript
 var details = new toggleDetails();
 
-details.initialize('contentClass','detailsClass',breakpoint)
+details.initialize('contentClass','detailsClass',breakpoint,toggleButton)
 ```
 
 
-| Parameter | Type | Description |
-|-----|---------|--|
-|contentClass|string|The class of the parent element wrapping the element which will be hidden responsively
-|detailsClass|string|The class of the child element will be hidden responsively
-|breakpoint|integer|The desired responsive breakpoint in pixels
+| Parameter | Type | Description | Required | Defaults
+|-----|---------|--|--|-|
+|contentClass|string|The class of the parent element wrapping the element which will be hidden responsively|Yes
+|detailsClass|string|The class of the child element will be hidden responsively|Yes
+|breakpoint|integer|The desired responsive breakpoint in pixels|Yes
+|toggleButton|Object|An object with 2 properties: <br/> &nbsp;&nbsp;&nbsp;&nbsp;`show:` (String) Text to show in the show state <br/> &nbsp;&nbsp;&nbsp;&nbsp;`hide:` (String) Text to show in the hide state<br/> *Example* *`{show: 'Expand Details', hide:'Hide Details'}`*|Optional|`{show: 'expand',hide:'hide details'}`
+
+**Example:**
+```javascript
+details.initialize('post-body','post-body-details',768,{
+    hide: 'Hide Details',
+    show:'More Details'
+    });
+```
 
 ### CSS Styling
 

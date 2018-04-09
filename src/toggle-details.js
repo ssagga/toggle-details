@@ -1,5 +1,5 @@
 /*!
- * toggle-details.js v0.2.0 (https://github.com/ssagga/toggle-details)
+ * toggle-details.js v0.3.0 (https://github.com/ssagga/toggle-details)
  * @copyright 2018 Samer Al-Saqqa
  * @license MIT (https://github.com/ssagga/toggle-details/blob/master/LICENSE)
  */
@@ -13,9 +13,13 @@ class toggleDetails{
         this._toggleClass = 'toggle-details-hidden'
         this._toggleButtonClass = 'toggle-details-button'
         this._responsiveBreakpoint = 768
+        this._toggleButton = {
+            show: 'expand',
+            hide: 'hide details'
+        }
     }
 
-    initialize(contentClass , detailsClass , breakpoint){
+    initialize(contentClass , detailsClass , breakpoint, toggleButton){
         //Check that class names are supplimented
         if(!contentClass || !detailsClass ||!breakpoint){
             throw new Error("Required missing parameters: Content class names");
@@ -23,6 +27,7 @@ class toggleDetails{
         this._contentClassName = contentClass;
         this._detailsClassName = detailsClass;
         this._responsiveBreakpoint = breakpoint;
+        this._toggleButton = toggleButton;
         //console.log(this._contentClassName, this._detailsClassName)    //DEBUG
 
         //Find DOM nodes with supplied class names
@@ -31,7 +36,7 @@ class toggleDetails{
             const _details = node.querySelector('.'+this._detailsClassName)
             const _toggleButton = document.createElement('a')
             _toggleButton.href = ''
-            _toggleButton.innerHTML = 'Toggle'
+            _toggleButton.innerHTML = this._toggleButton.show
             _toggleButton.classList.add(this._toggleButtonClass)
             _details.parentNode.insertBefore(_toggleButton,_details.nextSibling)
             
@@ -40,8 +45,10 @@ class toggleDetails{
                 const _details = e.target.parentNode.querySelector('.'+this._detailsClassName)
                 if (_details.classList.contains(this._toggleClass)){
                     _details.classList.remove(this._toggleClass)
+                    _toggleButton.innerHTML = this._toggleButton.hide
                 }else{
                     _details.classList.add(this._toggleClass)
+                    _toggleButton.innerHTML = this._toggleButton.show
                 }
                 //console.log(_details)   //DEBUG
             })

@@ -5,7 +5,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /*!
- * toggle-details.js v0.2.0 (https://github.com/ssagga/toggle-details)
+ * toggle-details.js v0.3.0 (https://github.com/ssagga/toggle-details)
  * @copyright 2018 Samer Al-Saqqa
  * @license MIT (https://github.com/ssagga/toggle-details/blob/master/LICENSE)
  */
@@ -21,11 +21,15 @@ var toggleDetails = function () {
         this._toggleClass = 'toggle-details-hidden';
         this._toggleButtonClass = 'toggle-details-button';
         this._responsiveBreakpoint = 768;
+        this._toggleButton = {
+            show: 'expand',
+            hide: 'hide details'
+        };
     }
 
     _createClass(toggleDetails, [{
         key: 'initialize',
-        value: function initialize(contentClass, detailsClass, breakpoint) {
+        value: function initialize(contentClass, detailsClass, breakpoint, toggleButton) {
             var _this = this;
 
             //Check that class names are supplimented
@@ -35,6 +39,7 @@ var toggleDetails = function () {
             this._contentClassName = contentClass;
             this._detailsClassName = detailsClass;
             this._responsiveBreakpoint = breakpoint;
+            this._toggleButton = toggleButton;
             //console.log(this._contentClassName, this._detailsClassName)    //DEBUG
 
             //Find DOM nodes with supplied class names
@@ -43,7 +48,7 @@ var toggleDetails = function () {
                 var _details = node.querySelector('.' + _this._detailsClassName);
                 var _toggleButton = document.createElement('a');
                 _toggleButton.href = '';
-                _toggleButton.innerHTML = 'Toggle';
+                _toggleButton.innerHTML = _this._toggleButton.show;
                 _toggleButton.classList.add(_this._toggleButtonClass);
                 _details.parentNode.insertBefore(_toggleButton, _details.nextSibling);
 
@@ -52,8 +57,10 @@ var toggleDetails = function () {
                     var _details = e.target.parentNode.querySelector('.' + _this._detailsClassName);
                     if (_details.classList.contains(_this._toggleClass)) {
                         _details.classList.remove(_this._toggleClass);
+                        _toggleButton.innerHTML = _this._toggleButton.hide;
                     } else {
                         _details.classList.add(_this._toggleClass);
+                        _toggleButton.innerHTML = _this._toggleButton.show;
                     }
                     //console.log(_details)   //DEBUG
                 });
