@@ -5,7 +5,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /*!
- * toggle-details.js v0.3.0 (https://github.com/ssagga/toggle-details)
+ * toggle-details.js v0.3.1 (https://github.com/ssagga/toggle-details)
  * @copyright 2018 Samer Al-Saqqa
  * @license MIT (https://github.com/ssagga/toggle-details/blob/master/LICENSE)
  */

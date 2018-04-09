@@ -1,11 +1,19 @@
 {
   "name": "toggle-details",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A mini JS library to enable responsive content hiding and a details hide/expand button",
   "main": "dist/toggle-details-min.js",
   "scripts": {
     "start": "gulp"
   },
+  "keywords": [
+    "show hide",
+    "responsive",
+    "responsive details",
+    "responsive hide",
+    "mobile",
+    "vanilla js"
+],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ssagga/toggle-details.git"
