@@ -1,5 +1,5 @@
 /*!
- * toggle-details.js v0.3.1 (https://github.com/ssagga/toggle-details)
+ * toggle-details.js v0.3.2 (https://github.com/ssagga/toggle-details)
  * @copyright 2018 Samer Al-Saqqa
  * @license MIT (https://github.com/ssagga/toggle-details/blob/master/LICENSE)
  */
@@ -34,6 +34,10 @@ class toggleDetails{
         this._parentNodes = Array.from(document.querySelectorAll('.'+this._contentClassName))
         this._parentNodes.forEach((node)=>{
             const _details = node.querySelector('.'+this._detailsClassName)
+            //Skip current iteration if no child details element is present in the parent container
+            if(!_details){
+                return;
+            }
             const _toggleButton = document.createElement('a')
             _toggleButton.href = ''
             _toggleButton.innerHTML = this._toggleButton.show
@@ -85,6 +89,10 @@ class toggleDetails{
     toggleMobileMode(){
         this._parentNodes.forEach((node)=>{
             const _details = node.querySelector('.'+this._detailsClassName)
+            //Skip current iteration if no child details element is present in the parent container
+            if(!_details){
+                return;
+            }
             const _button = node.querySelector('.'+this._toggleButtonClass)
             _details.classList.add(this._toggleClass)
             _button.style.display = 'block'
@@ -94,6 +102,10 @@ class toggleDetails{
     toggleDesktopMode(){
         this._parentNodes.forEach((node)=>{
             const _details = node.querySelector('.'+this._detailsClassName)
+            //Skip current iteration if no child details element is present in the parent container
+            if(!_details){
+                return;
+            }
             const _button = node.querySelector('.'+this._toggleButtonClass)
             _details.classList.remove(this._toggleClass)
             _button.style.display = 'none'

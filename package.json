@@ -1,6 +1,6 @@
 {
   "name": "toggle-details",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A mini JS library to enable responsive content hiding and a details hide/expand button",
   "main": "dist/toggle-details-min.js",
   "scripts": {

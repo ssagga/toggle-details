@@ -46,6 +46,10 @@ var toggleDetails = function () {
             this._parentNodes = Array.from(document.querySelectorAll('.' + this._contentClassName));
             this._parentNodes.forEach(function (node) {
                 var _details = node.querySelector('.' + _this._detailsClassName);
+                //Skip current iteration if no child details element is present in the parent container
+                if (!_details) {
+                    return;
+                }
                 var _toggleButton = document.createElement('a');
                 _toggleButton.href = '';
                 _toggleButton.innerHTML = _this._toggleButton.show;
@@ -102,6 +106,10 @@ var toggleDetails = function () {
 
             this._parentNodes.forEach(function (node) {
                 var _details = node.querySelector('.' + _this2._detailsClassName);
+                //Skip current iteration if no child details element is present in the parent container
+                if (!_details) {
+                    return;
+                }
                 var _button = node.querySelector('.' + _this2._toggleButtonClass);
                 _details.classList.add(_this2._toggleClass);
                 _button.style.display = 'block';
@@ -114,6 +122,10 @@ var toggleDetails = function () {
 
             this._parentNodes.forEach(function (node) {
                 var _details = node.querySelector('.' + _this3._detailsClassName);
+                //Skip current iteration if no child details element is present in the parent container
+                if (!_details) {
+                    return;
+                }
                 var _button = node.querySelector('.' + _this3._toggleButtonClass);
                 _details.classList.remove(_this3._toggleClass);
                 _button.style.display = 'none';
